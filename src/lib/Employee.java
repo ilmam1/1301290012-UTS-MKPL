@@ -6,28 +6,24 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Employee {
+
 	private String employeeId;
 	private String firstName;
 	private String lastName;
-	private String idNumber;
 	private String address;
-
+	private String idNumber;
 	private LocalDate yearJoined;
 	private LocalDate monthJoined;
 	private LocalDate dayJoined;
 	private int monthWorkingInYear;
 
 	private boolean isForeigner;
-	private gender gender;
+	private Gender gender;
 
-	private enum gender {
+	private enum Gender {
 		laki_laki,
 		perempuan
 	} // true = Laki-laki, false = Perempuan
-
-	private int monthlySalary;
-	private int otherMonthlyIncome;
-	private int annualDeductible;
 
 	private String spouseName;
 	private String spouseIdNumber;
@@ -35,13 +31,13 @@ public class Employee {
 	private List<String> childNames;
 	private List<String> childIdNumbers;
 
-	public Employee(String employeeId, String firstName, String lastName, String idNumber, String address,
-			LocalDate yearJoined, LocalDate monthJoined, LocalDate dayJoined, boolean isForeigner, gender gender) {
+	public Employee(String employeeId, String firstName, String lastName, String address, String idNumber,
+			LocalDate yearJoined, LocalDate monthJoined, LocalDate dayJoined, boolean isForeigner, Gender gender) {
 		this.employeeId = employeeId;
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.idNumber = idNumber;
 		this.address = address;
+		this.idNumber = idNumber;
 		this.yearJoined = yearJoined;
 		this.monthJoined = monthJoined;
 		this.dayJoined = dayJoined;
@@ -58,32 +54,44 @@ public class Employee {
 	 * 7.000.000 per bulan)
 	 * Jika pegawai adalah warga negara asing gaji bulanan diperbesar sebanyak 50%
 	 */
-
-	public void setMonthlySalary(int grade) {
-		if (grade == 1) {
-			monthlySalary = 3000000;
-			if (isForeigner) {
-				monthlySalary = (int) (3000000 * 1.5);
-			}
-		} else if (grade == 2) {
-			monthlySalary = 5000000;
-			if (isForeigner) {
-				monthlySalary = (int) (3000000 * 1.5);
-			}
-		} else if (grade == 3) {
-			monthlySalary = 7000000;
-			if (isForeigner) {
-				monthlySalary = (int) (3000000 * 1.5);
-			}
-		}
+	public String getEmployeeId() {
+		return employeeId;
 	}
 
-	public void setAnnualDeductible(int deductible) {
-		this.annualDeductible = deductible;
+	public boolean getForeigner() {
+		return isForeigner;
 	}
 
-	public void setAdditionalIncome(int income) {
-		this.otherMonthlyIncome = income;
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public Gender getGender() {
+		return gender;
+	}
+
+	public String getIdNumber() {
+		return idNumber;
+	}
+
+	public LocalDate getYearJoined() {
+		return yearJoined;
+	}
+
+	public LocalDate getMonthJoined() {
+		return monthJoined;
+	}
+
+	public LocalDate getDayJoined() {
+		return dayJoined;
 	}
 
 	public void setSpouse(String spouseName, String spouseIdNumber) {
